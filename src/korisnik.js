@@ -4,7 +4,7 @@ export class Korisnik
     {
         this._ime=ime;
         this._poeni=poeni;
-        this._lozinka=lozinka; //?
+        this._lozinka=lozinka; 
     }
     get ime ()
     {
