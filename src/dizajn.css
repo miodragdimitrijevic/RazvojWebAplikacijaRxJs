@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Quicksand');
+
+
+
+body
+{
+  
+    font-family: 'Quicksand',sans-serif;
+    color:#505962;
+    padding:0%;
+    margin: 0;
+    
+    
+
+}
+.navbar
+{
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    background: rgba (0, 0, 0, 0.6)!important;
+    
+}
+.navbar-brand img
+{
+    height: 4rem;
+
+}
+.navbar-nav li
+{
+    padding-right: 1rem;
+}
+.navbar-dark .navbar-nav .nav-link
+{
+    color:white;
+    padding-top: .8rem;
+}
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link:hover
+{
+    color:blue;
+    
+}
+#informacije
+{
+    display: flex;
+    height: 500px;
+    background-color: black;
+    margin: 0%;
+    justify-content: space-around;
+    
+    
+
+    
+}
+
+.caption
+{
+    width:100%;
+    max-width: 100%;
+    position: absolute;
+    margin-top: 100px;
+    min-width: 100%;
+
+    
+    
+}
+
+.btnInformacije
+{
+    display: flex;
+    justify-content: space-around;
+    
+    margin-top: 150px;
+}
+.btnInformacije btn-outline-info btn-lg
+{
+position: absolute;
+}
+#forma
+{
+    height: 700px;
+    background-image: url(slike1/formapozadina.jpg);
+    
+    background-repeat: no-repeat;
+    position:relative;
+    margin:0;
+    padding:0;
+    
+   
+    
+}
+.loginbox
+{
+    width:350px;
+    height:450px;
+    background: rgba(255, 255 ,255, .5);
+    font-family:'Lato',sans-serif;
+    color:black;
+    top:50%;
+    left:50%;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    box-sizing:border-box;
+    box-shadow: 0, 5px, 15 px rgba(0,0,0,.5);
+    padding: 90px 50px;
+    
+    
+    
+    
+
+
+}
+
+
+
+.avatar
+{
+    width: 140px;
+    height:140px;
+    position:absolute;
+    
+    border-radius:50%;
+    top:-50px;
+    left:calc(50% - 70px);
+
+
+}
+.loginbox h1
+{
+    margin:0;
+    padding:0 0 20px;
+    text-align: center;
+    font-size: 29px;
+    margin-top: 3px;
+
+}
+.loginbox p
+{
+    margin:0;
+    padding:0;
+    font-weight:bolder;
+}
+.loginbox input
+{
+    width:100%;
+    margin-bottom: 20px;
+
+}
+.loginbox input[type="text"], input[type="password"]
+{
+    border:none;
+    border-bottom: 2px solid black;
+    background: transparent;
+    outline:none;
+    height:40px;
+}
+.loginbox input[type="button"]
+{
+    border:none;
+    outline:none;
+    height:40px;
+    background: green;
+    color:black;
+    font-size:18px;
+    border-radius: 20px;
+    margin-top:61px;
+    
+}
+.loginbox input[type="button"]:hover
+{
+    cursor: pointer;
+    background: blue;
+    color: white;
+
+}
+
+
+
+
+#Pocetna
+{
+    
+    height: 90px;
+    display: flex;
+}
+figure p
+{
+
+    font-size: 100px;
+    position:absolute;
+    width: 20%;
+    color:white;
+    margin-top: 3%;
+    
+    
+    
+}
+.slider
+{
+    overflow: hidden;
+    height: 600px;
+    flex-grow: 1;
+    min-width: 100%;
+    
+    
+}
+
+.slide
+{
+    float: left;
+    width: 20%;
+    text-align: center;
+
+}
+.slider figure img 
+{
+    float:left;
+    text-align: center;
+    
+}
+.slider figure 
+{
+    position: relative;
+    margin:0;
+    width:500%;
+    left: 0 ;
+    animation: 30s slidy infinite ;
+}
+
+
+@keyframes slidy 
+{
+    0%
+    {
+        left:0% ;
+    }
+    10% 
+    {
+        left:0%;
+    }
+    12% 
+    {
+        left: -100%;
+    }
+    22% 
+    {
+        left: -100%;
+    }
+    24% 
+    {
+        left : -200%;
+    }
+    34%
+    {
+        left: -200%;
+    }
+    36%
+    {
+        left: -300%;
+    }
+    46%
+    {
+        left: -300%;
+    }
+    48%
+    {
+        left:-400%;
+    }
+    58%
+    {
+        left: -400%;
+    
+    }
+    60%
+    {
+        left:-300%;
+    }
+    70%
+    {
+        left: -300%;
+    }
+    72%
+    {
+        left:-200%;
+    }
+    82%
+    {
+        left: -200%;
+    }
+    84%
+    {
+        left: -100%;
+    }
+    94% 
+    {
+        left: -100%;
+    }
+    96%
+    {
+        left: 0%;
+    }
+
+}
