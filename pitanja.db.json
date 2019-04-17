@@ -1,11 +1,16 @@
 {
-    "korisnik":
-    [
-        {
-            "id":0,
-            "ime":"Miodrag",
-            "lozinka":"12345",
-            "poeni":52
-        }
-    ]
+  "korisnik": [
+    {
+      "id": 0,
+      "ime": "Miodrag",
+      "lozinka": "12345",
+      "poeni": 52
+    },
+    {
+      "id": 6,
+      "ime": "Fred",
+      "lozinka": "Blair",
+      "poeni": 3
+    }
+  ]
 }
