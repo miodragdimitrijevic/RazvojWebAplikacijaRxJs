@@ -1,10 +1,11 @@
 export class Pitanja
 {
-    constructor(ime,idOdgovora,id)
+    constructor(ime,idOdgovora,id,tezina)
     {
         this._ime=ime;
         this._idOdgovora=idOdgovora;
         this._id=id;
+        this._tezina=tezina;
         this._listaOdgovora=[];
     }
     get ime()
@@ -32,9 +33,19 @@ export class Pitanja
     {
         this._id=x;
     }
+    get tezina()
+    {
+        return this._tezina;
+
+    }
+    set tezina(x)
+    {
+        this._tezina=x;
+    }
     dodajOdgovor(odgovor)
     {
         this._listaOdgovora.push(odgovor);
     }
+
 
 }
