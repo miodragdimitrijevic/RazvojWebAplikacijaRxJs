@@ -1,0 +1,11 @@
+{
+    "korisnik":
+    [
+        {
+            "id":0,
+            "ime":"Miodrag",
+            "lozinka":"12345",
+            "poeni":52
+        }
+    ]
+}
