@@ -175,6 +175,613 @@
         "ime":"F heksadicimalno je koliko decimalno:",
         "tezina": 0
       }
-     ]
+     ],
+     "odgovori" : 
+     [
+       {
+         "id":0,
+         "ime": "Lakse se dodaju i brisu elementi",
+         "tacnost": 0 
+       },
+       {
+        "id":0,
+        "ime": "Radnom pristup clanovima liste nije dozvoljen u tipicnim impl. liste.",
+        "tacnost": 0 
+      },
+      {
+        "id":0,
+        "ime": "LIste mogu dinamicki da menjaju velicinu",
+        "tacnost": 1
+      },
+      {
+        "id":0,
+        "ime": "Nista od navedenog",
+        "tacnost": 0 
+      },
+      {
+        "id":1,
+        "ime": "funkcija bez povratne vrednosti",
+        "tacnost": 0 
+      },
+      {
+        "id":1,
+        "ime": "funkcija koja poziva samu sebe",
+        "tacnost": 1
+      },
+      {
+        "id":1,
+        "ime": "funkcija sa povratnom vrednoscu",
+        "tacnost": 0 
+      },
+      {
+        "id":1,
+        "ime": "vrstu konstruktora",
+        "tacnost": 0 
+      },
+      {
+        "id":2,
+        "ime": "11",
+        "tacnost": 0 
+      },
+      {
+        "id":2,
+        "ime": "12",
+        "tacnost": 0 
+      },
+      {
+        "id":2,
+        "ime": "13",
+        "tacnost": 1
+      },
+      {
+        "id":2,
+        "ime": "14",
+        "tacnost": 0 
+      },
 
+      {
+        "id":3,
+        "ime": "169",
+        "tacnost": 1 
+      },
+
+      {
+        "id":3,
+        "ime": "179",
+        "tacnost": 0 
+      },
+      {
+        "id":3,
+        "ime": "189",
+        "tacnost": 0 
+      },
+      {
+        "id":3,
+        "ime": "199",
+        "tacnost": 0 
+      },
+      {
+        "id":4,
+        "ime": "kviz",
+        "tacnost": 0 
+      },
+
+      {
+        "id":4,
+        "ime": "zikv",
+        "tacnost": 0 
+      },
+      {
+        "id":4,
+        "ime": "zivk",
+        "tacnost": 1
+      },
+      {
+        "id":4,
+        "ime": "izkv",
+        "tacnost": 0 
+      },
+      {
+        "id":5,
+        "ime": "da",
+        "tacnost": 0 
+      },
+      {
+        "id":5,
+        "ime": "ne",
+        "tacnost": 1
+      },
+      {
+        "id":5,
+        "ime": "da ako ima kljucnu rec return",
+        "tacnost": 0 
+      },
+      {
+        "id":5,
+        "ime": "da ako ima parametre",
+        "tacnost": 0 
+      },
+      {
+        "id":6,
+        "ime": "destruktor",
+        "tacnost": 0 
+      },
+      {
+        "id":6,
+        "ime": "kopi konstruktor",
+        "tacnost": 0 
+      },
+      {
+        "id":6,
+        "ime": "kontruktor bez parametara",
+        "tacnost": 1
+      },
+      {
+        "id":6,
+        "ime": "sve navedeno",
+        "tacnost": 0 
+      },
+      {
+        "id":7,
+        "ime": "javascript",
+        "tacnost": 0 
+      },
+      {
+        "id":7,
+        "ime": "php",
+        "tacnost": 0 
+      },
+      {
+        "id":7,
+        "ime": "html",
+        "tacnost": 0 
+      },
+
+      {
+        "id":7,
+        "ime": "c++",
+        "tacnost": 1 
+      },
+      {
+        "id":8,
+        "ime": "<javascript>",
+        "tacnost": 0 
+      },
+      {
+        "id":8,
+        "ime": "<script>",
+        "tacnost": 1
+      },
+      {
+        "id":8,
+        "ime": "<js>",
+        "tacnost": 0 
+      },
+      {
+        "id":8,
+        "ime": "<scripting>",
+        "tacnost": 0 
+      },
+      {
+        "id":9,
+        "ime": "document.getElementbyId('demo').innerHTML='Zamena';",
+        "tacnost": 1
+      },
+      {
+        "id":9,
+        "ime": "#demo.innerHTML='Zamena';",
+        "tacnost": 0 
+      },
+      {
+        "id":9,
+        "ime": "demo.getElement('p').innerHTML='Zamena';",
+        "tacnost": 0 
+      },
+      {
+        "id":9,
+        "ime": "document.getElementbyId('p')='Zamena';",
+        "tacnost": 0 
+      },
+      {
+        "id":10,
+        "ime": "function novaFunkcija()",
+        "tacnost": 1
+      },
+      {
+        "id":10,
+        "ime": "function =novaFunkcija()",
+        "tacnost": 0 
+      },
+      {
+        "id":10,
+        "ime": "function.novaFunkcija()",
+        "tacnost": 0 
+      },
+      {
+        "id":10,
+        "ime": "function:novaFunkcija()",
+        "tacnost": 0 
+      },
+      {
+        "id":11,
+        "ime": "== proverava i tip i vrednost sa obe strane,=== samo vrednost",
+        "tacnost": 0 
+      },
+      {
+        "id":11,
+        "ime": "nikakva",
+        "tacnost": 0 
+      },
+      {
+        "id":11,
+        "ime": "=== proverava i tip i vrednost sa obe strane,== samo vrednost",
+        "tacnost": 1
+      },
+      {
+        "id":11,
+        "ime": "=== vrsi dodatne konverzije da bi poredio elemente,== ne ",
+        "tacnost": 0 
+      },
+      {
+        "id":12,
+        "ime": "bckgrd-color: red;",
+        "tacnost": 0 
+      },
+      {
+        "id":12,
+        "ime": "background-color:red;",
+        "tacnost": 1
+      },
+      {
+        "id":12,
+        "ime": "bg-color: red;",
+        "tacnost": 0 
+      },
+      {
+        "id":12,
+        "ime": "color:red;",
+        "tacnost": 0 
+      },
+      {
+        "id":13,
+        "ime": " h1 { color: red;}",
+        "tacnost": 1
+      },
+      {
+        "id":13,
+        "ime": "h1.all { color: red;}",
+        "tacnost": 0 
+      },
+      {
+        "id":13,
+        "ime": "all.h1 { color: red ;}",
+        "tacnost": 0 
+      },
+      {
+        "id":13,
+        "ime": "h1 h1 all{ color: red ;}",
+        "tacnost": 0 
+      },
+      {
+        "id":14,
+        "ime": "row",
+        "tacnost": 1
+      },
+      {
+        "id":14,
+        "ime": "row-reverse",
+        "tacnost": 0 
+      },
+      {
+        "id":14,
+        "ime": "column",
+        "tacnost": 0 
+      },
+      {
+        "id":14,
+        "ime": "column-reverse",
+        "tacnost": 0 
+      },
+      {
+        "id":15,
+        "ime": "*",
+        "tacnost": 0 
+      },
+      {
+        "id":15,
+        "ime": "#",
+        "tacnost": 0 
+      },
+      {
+        "id":15,
+        "ime": "->",
+        "tacnost": 0 
+      },
+      {
+        "id":15,
+        "ime": "$",
+        "tacnost": 1 
+      },
+      {
+        "id":16,
+        "ime": "$niz=array('Prvi','Drugi', 'Treci');",
+        "tacnost": 0 
+      },
+      {
+        "id":16,
+        "ime": "$niz='Prvi','Drugi', 'Treci';",
+        "tacnost": 0 
+      },
+      {
+        "id":16,
+        "ime": "$niz=array['Prvi','Drugi', 'Treci'];",
+        "tacnost": 1
+      },
+      {
+        "id":16,
+        "ime": "Nesto drugo",
+        "tacnost": 0 
+      },
+      {
+        "id":17,
+        "ime": "SAVE AS",
+        "tacnost": 0 
+      },
+      {
+        "id":17,
+        "ime": "MODIFY",
+        "tacnost": 0 
+      },
+      {
+        "id":17,
+        "ime": "CHANGE",
+        "tacnost": 0 
+      },
+      {
+        "id":17,
+        "ime": "UPDATE",
+        "tacnost": 1
+      },
+      {
+        "id":18,
+        "ime": "SELECT *",
+        "tacnost": 1
+      },
+      {
+        "id":18,
+        "ime": "SELECT#",
+        "tacnost": 0 
+      },
+      {
+        "id":18,
+        "ime": "SELECT!",
+        "tacnost": 0 
+      },
+      {
+        "id":18,
+        "ime": "SELECT%",
+        "tacnost": 0 
+      },
+      {
+        "id":19,
+        "ime": "oba tvrdjenja netacna",
+        "tacnost": 1
+      },
+      {
+        "id":19,
+        "ime": "prvo tacno,drugo netacno",
+        "tacnost": 0 
+      },
+      {
+        "id":19,
+        "ime": "prvo tacno,drugo netacno",
+        "tacnost": 0 
+      },
+      {
+        "id":19,
+        "ime": "oba netacna",
+        "tacnost": 0 
+      },
+      {
+        "id":20,
+        "ime": "JOIN TABLES",
+        "tacnost": 0 
+      },
+      {
+        "id":20,
+        "ime": "INSIDE JOIN",
+        "tacnost": 0 
+      },
+      {
+        "id":20,
+        "ime": "INNER JOIN",
+        "tacnost": 1 
+      },
+      {
+        "id":20,
+        "ime": "JOINED",
+        "tacnost": 0 
+      },
+      {
+        "id":21,
+        "ime": "Pascal",
+        "tacnost": 0 
+      },
+      {
+        "id":21,
+        "ime": "C",
+        "tacnost": 0 
+      },
+      {
+        "id":21,
+        "ime": "Smalltalk",
+        "tacnost": 0 
+      },
+      {
+        "id":21,
+        "ime": "C++",
+        "tacnost": 1
+      },
+      {
+        "id":22,
+        "ime": "try",
+        "tacnost": 0 
+      },
+      {
+        "id":22,
+        "ime": "finally",
+        "tacnost": 0 
+      },
+      {
+        "id":22,
+        "ime": "Exception",
+        "tacnost": 0 
+      },
+      {
+        "id":22,
+        "ime": "this",
+        "tacnost": 1
+      },
+      {
+        "id":23,
+        "ime": "<breakline>",
+        "tacnost": 0 
+      },
+      {
+        "id":23,
+        "ime": "<br>",
+        "tacnost": 1
+      },
+      {
+        "id":23,
+        "ime": "<bl>",
+        "tacnost": 0 
+      },
+      {
+        "id":23,
+        "ime": "<linebreak>",
+        "tacnost": 0 
+      },
+      {
+        "id":24,
+        "ime": "<a href='www.google.com'> Google </a>",
+        "tacnost": 1
+      },
+      {
+        "id":24,
+        "ime": "<a>'www.google.com'</a>",
+        "tacnost": 0 
+      },
+      {
+        "id":24,
+        "ime": "<h ='www.google.com'>Google </h>",
+        "tacnost": 0 
+      },
+      {
+        "id":24,
+        "ime": "<a url='www.google.com'> Google </a>",
+        "tacnost": 0 
+      },
+      {
+        "id":25,
+        "ime": "<table> <tt> < tr>",
+        "tacnost": 0 
+      },
+      {
+        "id":25,
+        "ime": "<table> <tr> <td>",
+        "tacnost": 1
+      },
+      {
+        "id":25,
+        "ime": "<table> <t> <td>",
+        "tacnost": 0 
+      },
+      {
+        "id":25,
+        "ime": "<tr> <td> <t>",
+        "tacnost": 0 
+      },
+      {
+        "id":26,
+        "ime": "<check>",
+        "tacnost": 0 
+      },
+      {
+        "id":26,
+        "ime": "<checkbox>",
+        "tacnost": 0 
+      },
+      {
+        "id":26,
+        "ime": "<input type='checkbox'>",
+        "tacnost": 1
+      },
+      {
+        "id":26,
+        "ime": "<input type='check'>",
+        "tacnost": 0 
+      },
+      {
+        "id":27,
+        "ime": "<src>",
+        "tacnost": 0 
+      },
+      {
+        "id":27,
+        "ime": "<img>",
+        "tacnost": 0 
+      },
+      {
+        "id":27,
+        "ime": "<longspace>",
+        "tacnost": 0 
+      },
+      {
+        "id":27,
+        "ime": "<alt>",
+        "tacnost": 1
+      },
+      {
+        "id":28,
+        "ime": "<navlink>",
+        "tacnost": 0 
+      },
+      {
+        "id":28,
+        "ime": "<n>",
+        "tacnost": 0 
+      },
+      {
+        "id":28,
+        "ime": "<nav>",
+        "tacnost": 1 
+      },
+      {
+        "id":28,
+        "ime": "<nlink>",
+        "tacnost": 0 
+      },
+      {
+        "id":29,
+        "ime": "13",
+        "tacnost": 0 
+      },
+      {
+        "id":29,
+        "ime": "16",
+        "tacnost": 0 
+      },
+      {
+        "id":29,
+        "ime": "15",
+        "tacnost": 1
+      },
+      {
+        "id":29,
+        "ime": "14",
+        "tacnost": 0 
+      }
+
+     ]
 }
