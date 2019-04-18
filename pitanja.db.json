@@ -5,12 +5,176 @@
       "ime": "Miodrag",
       "lozinka": "12345",
       "poeni": 52
+    }
+    
+  ],
+  "pitanja":
+  [
+    {
+    "id" : 0,
+    "ime":"Sta je od ponudjenih odgovara tacno vezano za lancanu listu u poredjenju sa nizom?",
+    "tezina": 1
+
     },
     {
-      "id": 6,
-      "ime": "Fred",
-      "lozinka": "Blair",
-      "poeni": 3
-    }
-  ]
+      "id" : 1,
+      "ime":"Rekurzijom nazivamo",
+      "tezina": 0
+  
+      },
+      {
+        "id" : 2,
+        "ime":"D je heksadicimalna vrednost za decimalnu vrednost:",
+        "tezina": 0
+    
+      },
+      {
+          "id" : 3,
+          "ime":"A9 je heksadicimalna vrednost za decimalnu vrednost:",
+          "tezina": 1
+      
+      },
+      {
+            "id" : 4,
+            "ime":"Ako koristimo strukturu magacina ubacimo karakter po karakter string' kviz' sta ce biti izlaz(koristeci pop())",
+            "tezina": 1
+        
+      },
+      {
+              "id" : 5,
+              "ime":"Da li konstruktor ima povratnu vrednost:",
+              "tezina": 0
+          
+      },
+      {
+         "id" : 6,
+         "ime":"Sta je od ponudjenog uvek dodato klasi, iako ne napisemo sami:",
+          "tezina": 1
+            
+      },
+      {
+        "id" : 7,
+        "ime":"Sta od ponudjenih nije web jezik:",
+       "tezina": 0
+              
+      },
+      {
+        "id" : 8,
+        "ime":"U kom HTML elementu smestamo JavaScript:",
+        "tezina": 0
+                
+       },
+      {
+        "id" : 9,
+        "ime":"Za sadrzaj html-a <p id='demo'>Paragraf</p> kojom sintaksom menjamo njen sadrzaj?",
+        "tezina": 1
+                  
+      },
+      {
+         "id" : 10,
+         "ime":"Kako se stvara nova funkcija u JS-u?",
+         "tezina": 0
+                    
+      },
+      {
+        "id" : 11,
+        "ime":"Razlika izmedju == i === je :",
+        "tezina": 1
+                   
+      },
+      {
+        "id" : 12,
+        "ime":"Koji properti u CSS se koristi za menjanje boje pozadine",
+        "tezina": 0
+                   
+      },
+      {
+        "id" : 13,
+        "ime":"Kako obojiti sva slova elemente tipa <h1> u CSS-u ?",
+        "tezina": 1
+                   
+      },
+      {
+        "id" : 14,
+        "ime":"Koja je podrazumevana vrednost propertija flex-direction:",
+        "tezina": 0
+                   
+      },
+      {
+        "id" : 15,
+        "ime":"Sve varijable u PHP pocinju znakom :",
+        "tezina": 0
+      },
+      {
+        "id" : 16,
+        "ime":"Koji je ispravan nacin za kreiranje niza u PHP-u:",
+        "tezina": 1
+      },
+      {
+        "id" : 17,
+        "ime":"Koja SQL naredba se koristi za promenu podataka u bazi:",
+        "tezina": 0
+      },
+      {
+        "id" : 18,
+        "ime":"Kojom naredbom selektujemo sve kolone iz jedne tabele (SQL):",
+        "tezina": 0
+      },
+      {
+        "id" : 19,
+        "ime":"Ako imamo if(a!=b && a==c) program ce u blok naredbi koji sledi uci ako su: ",
+        "tezina": 1
+      },
+      {
+        "id" : 20,
+        "ime":"Koji od ponudjenih jezika je objektno-orjentisan:",
+        "tezina": 0
+      },
+      {
+        "id" : 21,
+        "ime":"U SQL-u koji najjcesnji nacin 'pridruzivanja' tabela:",
+        "tezina": 0
+      },
+      {
+        "id" : 22,
+        "ime":"Koji HTML tag se koristi za insertovanje presecne linije:",
+        "tezina": 1
+      },
+      {
+        "id" : 23,
+        "ime":"Izbacite uljeza ako je u pitanju obrada izuzetaka u C#",
+        "tezina": 1
+      },
+      {
+        "id" : 24,
+        "ime":"Kako se u html-u pravilno formira hyperlink:",
+        "tezina": 1
+      },
+      {
+        "id" : 25,
+        "ime":"Kako se u HTML-u kreira čekboks:",
+        "tezina": 0
+      },
+      {
+        "id" : 26,
+        "ime":"Pronadji sve tagove vezane za tabele u html-u:",
+        "tezina": 1
+      },
+      {
+        "id" : 27,
+        "ime":"Koji html atribut oznacava tekst koji se prikazuje ako se ne ucita slika?",
+        "tezina": 1
+      },
+      {
+        "id" : 28,
+        "ime":"Koji atribut u HTML-u specificira navigacione linkove ?",
+        "tezina": 0
+      },
+      {
+        "id" : 29,
+        "ime":"F heksadicimalno je koliko decimalno:",
+        "tezina": 0
+      }
+     ]
+
 }
