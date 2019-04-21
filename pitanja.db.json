@@ -1,10 +1,24 @@
 {
-  "korisnik": [
+  "user": [
     {
       "id": 0,
-      "ime": "Miodrag",
-      "lozinka": "12345",
-      "poeni": 52
+      "name": "Miodrag",
+      "password": "12345",
+      "points": 52
+    },
+    {
+      "id":1,
+      "name": "Dusan",
+      "password":"nesto",
+      "points": 24
+
+    },
+    {
+      "id":2,
+      "name": "Milica",
+      "password":"nesto",
+      "points": 34
+
     }
     
   ],

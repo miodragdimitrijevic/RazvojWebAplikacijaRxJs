@@ -1,10 +1,19 @@
 export class Korisnik 
 {
-    constructor (ime,poeni,lozinka)
+    constructor (id,ime,poeni,lozinka)
     {
+        this._id=id;
         this._ime=ime;
         this._poeni=poeni;
         this._lozinka=lozinka; 
+    }
+    get id()
+    {
+        return this._id;
+    }
+    set id (x)
+    {
+        this._id=x;
     }
     get ime ()
     {
@@ -16,11 +25,11 @@ export class Korisnik
     }
     get poeni()
     {
-        return this._ime;
+        return this._poeni;
     }
     set poeni(x)
     {
-        return this._poeni=x;
+        this._poeni=x;
     }
     get lozinka()
     {

@@ -92,7 +92,7 @@
           <h1>Srecno!</h1>
           <div class="btnInformacije">
           <a class="btn btn-outline-info btn-lg" href="#forma">Popuni prijavu i zapocni</a>
-          <button type=" button" class="btn btn-outline-info btn-lg"data-toggle="modal" data-target="#rnglista" >Pogledaj rang listu</button>
+          <button id="btnrnglista" type=" button" class="btn btn-outline-info btn-lg"data-toggle="modal" data-target="#rnglista" >Pogledaj rang listu</button>
           <div class="modal fade" id="rnglista">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -100,37 +100,13 @@
                   <h3>Rang lista</h3>
                 </div>
                 <div class="modal-body">
-                  <table>
+                  <table id ="tabela">
                     <tr>
                       <th>Ime</th>
                       <th>Poeni</th>
 
                     </tr>
-                    <tr>
-                      <td>Miodrag</td>
-                      <td>52 </td>
-                      
-                    </tr>
-                    <tr>
-                        <td>Miodrag</td>
-                        <td>52 </td>
-                        
-                      </tr>
-                      <tr>
-                          <td>Miodrag</td>
-                          <td>52 </td>
-                          
-                        </tr>
-                        <tr>
-                            <td>Miodrag</td>
-                            <td>52 </td>
-                            
-                          </tr>
-                          <tr>
-                              <td>Miodrag</td>
-                              <td>52 </td>
-                              
-                            </tr>
+                    
                   </table>
                   
                 </div>
@@ -152,7 +128,7 @@
           <h1>Prijavi se</h1>
           <form>
             <p>Korisnicko ime</p>
-            <input type="text" name="" placeholder="Unesite korisnicko ime">
+            <input id ="txtime" type="text" name="" placeholder="Unesite korisnicko ime">
             <p>Lozinka</p>
             <input id="pasvord" type="password" name="" placeholder="Unesite lozinku">
             <input id ="Prijava" type="button" name="" value="Pocni kviz!">
