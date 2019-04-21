@@ -1,8 +1,8 @@
 export class Korisnik 
 {
-    constructor (id,ime,poeni,lozinka)
+    constructor (ime,poeni,lozinka)
     {
-        this._id=id;
+        this._id=null;
         this._ime=ime;
         this._poeni=poeni;
         this._lozinka=lozinka; 

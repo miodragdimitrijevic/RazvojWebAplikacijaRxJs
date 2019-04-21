@@ -131,7 +131,8 @@
             <input id ="txtime" type="text" name="" placeholder="Unesite korisnicko ime">
             <p>Lozinka</p>
             <input id="pasvord" type="password" name="" placeholder="Unesite lozinku">
-            <input id ="Prijava" type="button" name="" value="Pocni kviz!">
+            <input id ="Prijava" type="button"  value="Pocni kviz!" data-toggle="modal" data-target="#Kviz">
+            
           </form>
             
         </div>
@@ -139,6 +140,22 @@
 
     <script src="dist/bundle.js"></script>
     <script src ="js/jquery-3.3.1.min.js"></script>
+    <div class="modal fade" id="Kviz">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 id="naslovKviz">Kviz uskoro pocinje...</h3>
+            </div>
+            <div class="modal-body" id="bodiKviz">
+              <p> Ovde stoji nesto</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Zavrsi kviz</button>
+              </div>
+
+          </div>
+        </div>
+      </div>
     
     
     <script src ="bootstrap-4.1.3-dist/js/bootstrap.bundle.min.js"></script>
