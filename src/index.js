@@ -14,7 +14,7 @@ const imena=[];
 const poeni=[];
 
 const axios=require ('axios');
-function fecuj()
+function popuniRangListu()
 {
 axios.get('http://localhost:3000/user?_sort=points&_order=desc')
 .then(resp =>{
@@ -24,16 +24,10 @@ axios.get('http://localhost:3000/user?_sort=points&_order=desc')
     data.forEach(el=>
         {
             pomocnatabela.innerHTML+="<tr><td>"+el.name+"</td><td>" +el.points +"</td></tr>";
-            
-            
-            
-        });
-       
-        
-        
+        }); 
 }).catch(error => {console.log(error);});
 }
-fecuj();
+popuniRangListu();
 
 
 
