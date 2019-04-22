@@ -3,23 +3,25 @@ import { interval, range, Subject, Observable, fromEvent, from, forkJoin, timer,
 import { take, filter, map, takeUntil, sampleTime, debounceTime, switchMap, pairwise, scan } from "rxjs/operators";
 import {Korisnik} from "./korisnik.js"
 import { resolve } from "url";
-
+import { rejects } from "assert";
+import { async } from "rxjs/internal/scheduler/async";
 
 
 const rngListaBtn=document.getElementById("btnrnglista");
+let flagDaLipostoji=0;
+        
 const pomocnatabela=document.getElementById("tabela");
 const btnPocni=document.getElementById("Prijava");
 let imeKorisnik=document.getElementById("txtime");
 let lozinkaKorisnik=document.getElementById("pasvord");
+const buttonHard=document.createElement("button");
+const buttonEasy=document.createElement("button");
+buttonHard.innerHTML="Hard";
+buttonEasy.innerHTML="Easy";
 
 
 let trenutnikorisnik=null;
 
-
-
-const users=[];
-const imena=[];
-const poeni=[];
 
 const axios=require ('axios');
 function popuniRangListu()
@@ -42,7 +44,7 @@ fromEvent(btnPocni,"click")
     map(ev=>ev.target.value),
     
 
-).subscribe(korisnik=>{vratiKorisnika(); cekaj()});
+).subscribe(korisnik=>{vratiKorisnika(); cekaj();});
 
 function vratiKorisnika()
 {
@@ -59,20 +61,22 @@ function proveriBazu()
     
     return new Promise(resolve=>{
         let flagDaLipostoji=0;
-        setTimeout(()=>{resolve(flagDaLipostoji)},500);
         axios.get('http://localhost:3000/user')
         .then(odg=>{
             const data =odg.data;
             data.forEach(el=>
                 {
                     if(el.name==trenutnikorisnik._ime && el.password==trenutnikorisnik._lozinka)
+                    {
                     flagDaLipostoji=1;
+                    trenutnikorisnik._poeni=el.points;
+                    trenutnikorisnik._id=el.id;
                     
-                  
+                    }
                 }
                 )
         })
-        setTimeout(()=>{resolve(flagDaLipostoji)},500);
+        setTimeout(()=>{resolve(flagDaLipostoji)},1000);
         
         
         
@@ -82,13 +86,121 @@ async function cekaj()
 {
     let vrednost=await proveriBazu();
     if(vrednost==1)
-    {
-        console.log("Kasnim");
-    }
+    crtajTezinuPostojeci();
+    else
+    crtajTezinuNepostojeci();
+    
 
     
 
 }
+function crtajZaPostojecegKorisnika()
+{
+    return new Promise((resolve)=>{
+        
+    
+    console.log(trenutnikorisnik);
+    const paragraf=document.getElementById("paragraf");
+    paragraf.innerHTML="Vec imate nalog! Kviz pocinje..";
+    setTimeout(()=>{resolve("izvrseno")},3000);
+
+    }).catch(error=>console.log(error));
+}
+function crtajZaNepostojecegKorisnika()
+{
+    return new Promise((resolve)=>{
+        izracunajId();
+        
+        const paragraf=document.getElementById("paragraf");
+        paragraf.innerHTML="Napravili ste novi nalog!";
+        setTimeout(()=>{resolve("izvrseno")},3000);
+    
+        }).catch(error=>console.log(error));
+}
+
+async function crtajTezinuPostojeci()
+{
+    var promenljiva=await crtajZaPostojecegKorisnika();
+    
+    console.log(promenljiva);
+    const paragraf=document.getElementById("paragraf");
+    paragraf.hidden=true;
+    const bodiKviz=document.getElementById("bodiKviz");
+
+    const dugmadDiv=document.createElement("div");
+    dugmadDiv.className="dugmad";
+    bodiKviz.appendChild(dugmadDiv);
+
+    dugmadDiv.appendChild(buttonHard);
+    dugmadDiv.appendChild(buttonEasy);
+
+    const modalNaslov=document.getElementById("naslovKviz");
+    modalNaslov.innerHTML="Izaberite tezinu testa";
+
+}
+function fecuj()
+{
+    return from (
+        fetch(`http://localhost:3000/user`)
+        .then(res=>res.json())
+    )
+}
+function izracunajId()
+{
+    let brojacId =0;
+    const $docekajFec=fecuj();
+     $docekajFec.pipe(
+        map(x=>x+1),
+        takeUntil($docekajFec)
+    ).subscribe(x=>console.log(x));
+    const subscribe=$docekajFec.subscribe(x=>{
+        x.forEach(el=> {
+            brojacId++;
+            
+
+        })
+        ubaciKorisnikaUBazu(brojacId);
+    });
+    
+    
+    
+}
+function ubaciKorisnikaUBazu(noviId)
+{
+    axios.post('http://localhost:3000/user',
+    {
+        id: noviId,
+        name: imeKorisnik.value ,
+        password: lozinkaKorisnik.value,
+        points: 0
+    }).then(resp=> {console.log(resp.data);
+    }).catch(error=> {console.log(error)
+    });
+}
+async function crtajTezinuNepostojeci()
+{
+    var promenljiva=await crtajZaNepostojecegKorisnika();
+    
+    console.log(promenljiva);
+    const paragraf=document.getElementById("paragraf");
+    paragraf.hidden=true;
+    const bodiKviz=document.getElementById("bodiKviz");
+
+    const dugmadDiv=document.createElement("div");
+    dugmadDiv.className="dugmad";
+    bodiKviz.appendChild(dugmadDiv);
+
+    dugmadDiv.appendChild(buttonHard);
+    dugmadDiv.appendChild(buttonEasy);
+
+    const modalNaslov=document.getElementById("naslovKviz");
+    modalNaslov.innerHTML="Izaberite tezinu testa";
+}
+
+
+
+
+
 
 
 
