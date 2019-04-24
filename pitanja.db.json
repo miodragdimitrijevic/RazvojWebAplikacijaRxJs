@@ -29,13 +29,19 @@
       "name": "Marija",
       "password": "marija",
       "points": 0
+    },
+    {
+      "id": 5,
+      "name": "Joca",
+      "password": "joca",
+      "points": 0
     }
   ],
   "pitanja": [
     {
       "id": 0,
       "ime": "Sta je od ponudjenih odgovara tacno vezano za lancanu listu u poredjenju sa nizom?",
-      "tezina": 1
+      "tezina": 0
     },
     {
       "id": 1,
@@ -50,12 +56,12 @@
     {
       "id": 3,
       "ime": "A9 je heksadicimalna vrednost za decimalnu vrednost:",
-      "tezina": 1
+      "tezina": 0
     },
     {
       "id": 4,
       "ime": "Ako koristimo strukturu magacina ubacimo karakter po karakter string' kviz' sta ce biti izlaz(koristeci pop())",
-      "tezina": 1
+      "tezina": 0
     },
     {
       "id": 5,
@@ -65,7 +71,7 @@
     {
       "id": 6,
       "ime": "Sta je od ponudjenog uvek dodato klasi, iako ne napisemo sami:",
-      "tezina": 1
+      "tezina": 0
     },
     {
       "id": 7,
@@ -80,7 +86,7 @@
     {
       "id": 9,
       "ime": "Za sadrzaj html-a <p id='demo'>Paragraf</p> kojom sintaksom menjamo njen sadrzaj?",
-      "tezina": 1
+      "tezina": 0
     },
     {
       "id": 10,
@@ -90,7 +96,7 @@
     {
       "id": 11,
       "ime": "Razlika izmedju == i === je :",
-      "tezina": 1
+      "tezina": 0
     },
     {
       "id": 12,
@@ -100,7 +106,7 @@
     {
       "id": 13,
       "ime": "Kako obojiti sva slova elemente tipa <h1> u CSS-u ?",
-      "tezina": 1
+      "tezina": 0
     },
     {
       "id": 14,
@@ -110,7 +116,7 @@
     {
       "id": 15,
       "ime": "Sve varijable u PHP pocinju znakom :",
-      "tezina": 0
+      "tezina": 1
     },
     {
       "id": 16,
@@ -120,12 +126,12 @@
     {
       "id": 17,
       "ime": "Koja SQL naredba se koristi za promenu podataka u bazi:",
-      "tezina": 0
+      "tezina": 1
     },
     {
       "id": 18,
       "ime": "Kojom naredbom selektujemo sve kolone iz jedne tabele (SQL):",
-      "tezina": 0
+      "tezina": 1
     },
     {
       "id": 19,
@@ -135,12 +141,12 @@
     {
       "id": 20,
       "ime": "Koji od ponudjenih jezika je objektno-orjentisan:",
-      "tezina": 0
+      "tezina": 1
     },
     {
       "id": 21,
       "ime": "U SQL-u koji najjcesnji nacin 'pridruzivanja' tabela:",
-      "tezina": 0
+      "tezina": 1
     },
     {
       "id": 22,
@@ -160,7 +166,7 @@
     {
       "id": 25,
       "ime": "Kako se u HTML-u kreira čekboks:",
-      "tezina": 0
+      "tezina": 1
     },
     {
       "id": 26,
@@ -175,12 +181,12 @@
     {
       "id": 28,
       "ime": "Koji atribut u HTML-u specificira navigacione linkove ?",
-      "tezina": 0
+      "tezina": 1
     },
     {
       "id": 29,
       "ime": "F heksadicimalno je koliko decimalno:",
-      "tezina": 0
+      "tezina": 1
     }
   ],
   "odgovori": [
