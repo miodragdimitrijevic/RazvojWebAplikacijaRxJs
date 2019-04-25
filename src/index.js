@@ -1,15 +1,10 @@
-import {Pitanja} from "./pitanja.js"
+
 import {  Observable, fromEvent, from, of} from "rxjs";
 import { take, filter, map, takeUntil,  debounceTime,  reduce} from "rxjs/operators";
 import {Korisnik} from "./korisnik.js"
 import { resolve } from "url";
 import { rejects } from "assert";
 import { async } from "rxjs/internal/scheduler/async";
-
-
-const rngListaBtn=document.getElementById("btnrnglista");
-
-
 
 
 const pomocnatabela=document.getElementById("tabelabodi");
@@ -23,8 +18,6 @@ buttonEasy.innerHTML="Easy";
 const nizIdentifikatoraPitanja=[];
 
 const flagObustavljanjaKviza=0;
-
-
 let trenutnikorisnik=null;
 
 
@@ -85,8 +78,6 @@ function proveriBazu()
         })
         setTimeout(()=>{resolve(flagDaLipostoji)},1000);
         
-        
-        
     });
 }
 async function cekaj()
@@ -97,16 +88,12 @@ async function cekaj()
     else
     crtajTezinuNepostojeci();
     
-
-    
-
 }
 function crtajZaPostojecegKorisnika()
 {
     
     return new Promise((resolve)=>{
         
-    
     console.log(trenutnikorisnik);
     const paragraf=document.getElementById("paragraf");
     paragraf.innerHTML="Vec imate nalog! Kviz pocinje..";
@@ -345,15 +332,13 @@ async function pribaviTeskaPitanja()
 
                 })
             })
-    }
-    
+    }    
     }
         bodiKviz.style.backgroundColor="white";
         naslovKviz.innerHTML="Nazalost,isteklo vam je vreme..Kviz je zavrsen.Racunam rezultat..";
       const cekaj=await poslednjePitanje();
 
 
-    
     const source=of(trenutniPoeni,trenutnikorisnik._poeni);
     const pomocna=source.pipe(reduce((acc,val)=>acc + val));
     const subscribe=pomocna.subscribe(val=> {
@@ -364,11 +349,11 @@ async function pribaviTeskaPitanja()
         trenutnikorisnik._poeni=val;
 
         
-       
+        promeniuBazu(trenutnikorisnik._poeni);
 
     })
     const sacekajObavestenje=await obavestenje();
-    promeniuBazu(trenutnikorisnik._poeni);
+    
         pomocnatabela.innerHTML="";
         popuniRangListu();
 }
@@ -382,7 +367,7 @@ function promisZaNovogclana()
 {
     return new Promise((resolve)=>
     {
-        setTimeout(()=> {resolve("drugi clan")},15000);
+        setTimeout(()=> {resolve("drugi clan")},14000);
     })
 }
 
@@ -390,7 +375,7 @@ function vratiPromiszaDrugaPitanja()
 {
     return new Promise((resolve)=>
     {
-        setTimeout(()=> {resolve("ovde crtam svako drugo pitanje")},15000);
+        setTimeout(()=> {resolve("ovde crtam svako drugo pitanje")},14000);
     })
 }
 function prvoPitanje()
@@ -404,7 +389,7 @@ function poslednjePitanje()
 {
     return new Promise ((resolve)=>
     {
-        setTimeout(()=>{resolve("")},15000);
+        setTimeout(()=>{resolve("")},14000);
     })
 }
 function obavestenje()
@@ -447,29 +432,23 @@ function popuniTacno()
     btn1.setAttribute("id","");
     btn2.setAttribute("id","");
     btn3.setAttribute("id","");
-    
-   
-
-  
     bodiKvizz.style.backgroundColor="green";
-
-
 }
 function popuninetacno()
 {
     const bodiKvizz=document.getElementById("bodiKviz");
     const naslovKviz=document.getElementById("naslovKviz");
-    naslovKviz.innerHTML="Odgovorili ste tacno! Sledi sledece pitanje..";
+    naslovKviz.innerHTML="Odgovorili ste netacno! Sledi sledece pitanje..";
     const btn0=document.getElementById("1");
     const btn1=document.getElementById("2");
-    
     const btn2=document.getElementById("3");
-    
     const btn3=document.getElementById("4");
+
     btn0.hidden=true;
     btn1.hidden=true;
     btn2.hidden=true;
     btn3.hidden=true;
+
     btn0.setAttribute("id","");
     btn1.setAttribute("id","");
     btn2.setAttribute("id","");
@@ -482,8 +461,6 @@ function randomZaLako()
         
         randomBr.next(parseInt(14*Math.random()));
         
-    
-    
 }).pipe(take(5),debounceTime(50))
     
 }
@@ -567,8 +544,6 @@ async function pribaviLakaPitanja ()
         {
             modalNaslov.innerHTML="Niste odgovorili na vreme. Kviz se zavrsio!Refresujte da pokusate ponovo.";
             modalNaslov.style.backgroundColor="tomato";
-            
-            
             bodiKviz.innerHTML="";
             
             break;
@@ -623,21 +598,17 @@ async function pribaviLakaPitanja ()
         bodiKviz.style.backgroundColor="white";
         naslovKviz.innerHTML="Nazalost,isteklo vam je vreme..Kviz je zavrsen.Racunam rezultat..";
       const cekaj=await poslednjePitanje();
-
-
-    
     const source=of(trenutniPoeni,trenutnikorisnik._poeni);
     const pomocna=source.pipe(reduce((acc,val)=>acc + val));
     const subscribe=pomocna.subscribe(val=> {
-        let pomocnistring=trenutnikorisnik._ime + " " + "vas trenutni rezultat je" + val + "." + "Ako zelite opet da igrate osvezite stranu.";
+        naslovKviz.style.backgroundColor="white";
+        let pomocnistring=trenutnikorisnik._ime + " " + "vas trenutni rezultat je" + " " + val + "." + " " +"Ako zelite opet da igrate osvezite stranu.";
         naslovKviz.innerHTML= pomocnistring;
         bodiKviz.style.backgroundColor="white";
         bodiKviz.innerHTML="";
         trenutnikorisnik._poeni=val;
-
         promeniuBazu(trenutnikorisnik._poeni);
        
-
     })
     const sacekajObavestenje=await obavestenje();
         pomocnatabela.innerHTML="";

@@ -4,7 +4,7 @@
       "id": 0,
       "name": "Miodrag",
       "password": "12345",
-      "points": 66
+      "points": 76
     },
     {
       "id": 1,
@@ -52,13 +52,25 @@
       "id": 8,
       "name": "pera11",
       "password": "12345",
-      "points": 2
+      "points": 4
     },
     {
       "id": 9,
       "name": "anoniman",
       "password": "404",
       "points": -1
+    },
+    {
+      "id": 10,
+      "name": "sanja107",
+      "password": "sanja",
+      "points": 0
+    },
+    {
+      "id": 11,
+      "name": "sanja107",
+      "password": "sanjaa",
+      "points": 0
     }
   ],
   "pitanja": [
@@ -109,7 +121,7 @@
     },
     {
       "id": 9,
-      "ime": "Za sadrzaj html-a <p id='demo'>Paragraf</p> kojom sintaksom menjamo njen sadrzaj?",
+      "ime": "Za sadrzaj html-a < -p id='demo'>Paragraf<-/p -> kojom sintaksom menjamo njen sadrzaj?",
       "tezina": 0
     },
     {
@@ -376,22 +388,22 @@
     },
     {
       "id": 8,
-      "ime": "<javascript>",
+      "ime": "< -j a v a s c r i p t>",
       "tacnost": 0
     },
     {
       "id": 8,
-      "ime": "<script>",
+      "ime": "< - s c r i p t ->",
       "tacnost": 1
     },
     {
       "id": 8,
-      "ime": "<js>",
+      "ime": "< - j s ->",
       "tacnost": 0
     },
     {
       "id": 8,
-      "ime": "<scripting>",
+      "ime": "<- s c r i p ting ->",
       "tacnost": 0
     },
     {
@@ -756,17 +768,17 @@
     },
     {
       "id": 27,
-      "ime": "'<src>'",
+      "ime": "'< - s r c->'",
       "tacnost": 0
     },
     {
       "id": 27,
-      "ime": "'<img>'",
+      "ime": "'<- img - >'",
       "tacnost": 0
     },
     {
       "id": 27,
-      "ime": "'<longspace>'",
+      "ime": "'<- l o n g s p a c e>'",
       "tacnost": 0
     },
     {
@@ -776,12 +788,12 @@
     },
     {
       "id": 28,
-      "ime": "'<navlink>'",
+      "ime": "'<- navlink ->'",
       "tacnost": 0
     },
     {
       "id": 28,
-      "ime": "'<n>'",
+      "ime": "'<- n ->'",
       "tacnost": 0
     },
     {
@@ -791,7 +803,7 @@
     },
     {
       "id": 28,
-      "ime": "'<nlink>'",
+      "ime": "'<- nlink ->'",
       "tacnost": 0
     },
     {
