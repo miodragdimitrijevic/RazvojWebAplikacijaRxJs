@@ -4,7 +4,7 @@
       "id": 0,
       "name": "Miodrag",
       "password": "12345",
-      "points": 52
+      "points": 66
     },
     {
       "id": 1,
@@ -35,6 +35,30 @@
       "name": "Joca",
       "password": "joca",
       "points": 0
+    },
+    {
+      "id": 6,
+      "name": "misko997",
+      "password": "sifra",
+      "points": 0
+    },
+    {
+      "id": 7,
+      "name": "nekinik",
+      "password": "sifraa",
+      "points": 0
+    },
+    {
+      "id": 8,
+      "name": "pera11",
+      "password": "12345",
+      "points": 2
+    },
+    {
+      "id": 9,
+      "name": "anoniman",
+      "password": "404",
+      "points": -1
     }
   ],
   "pitanja": [

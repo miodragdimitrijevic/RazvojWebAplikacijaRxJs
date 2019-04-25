@@ -1,6 +1,6 @@
 import {Pitanja} from "./pitanja.js"
-import { interval, range, Subject, Observable, fromEvent, from, forkJoin, timer, zip,of} from "rxjs";
-import { take, filter, map, takeUntil, sampleTime, debounceTime, switchMap, pairwise, scan,reduce} from "rxjs/operators";
+import {  Observable, fromEvent, from, of} from "rxjs";
+import { take, filter, map, takeUntil,  debounceTime,  reduce} from "rxjs/operators";
 import {Korisnik} from "./korisnik.js"
 import { resolve } from "url";
 import { rejects } from "assert";
@@ -12,7 +12,7 @@ const rngListaBtn=document.getElementById("btnrnglista");
 
 
 
-const pomocnatabela=document.getElementById("tabela");
+const pomocnatabela=document.getElementById("tabelabodi");
 const btnPocni=document.getElementById("Prijava");
 let imeKorisnik=document.getElementById("txtime");
 let lozinkaKorisnik=document.getElementById("pasvord");
@@ -34,10 +34,12 @@ function popuniRangListu()
 axios.get('http://localhost:3000/user?_sort=points&_order=desc')
 .then(resp =>{
      const data=resp.data
+     
     data.forEach(el=>
         {
             pomocnatabela.innerHTML+="<tr><td>"+el.name+"</td><td>" +el.points +"</td></tr>";
         }); 
+        
 }).catch(error => {console.log(error);});
 }
 popuniRangListu();
@@ -118,7 +120,7 @@ function crtajZaNepostojecegKorisnika()
         izracunajId();
         
         const paragraf=document.getElementById("paragraf");
-        paragraf.innerHTML="Napravili ste novi nalog!";
+        paragraf.innerHTML="Napravili ste novi nalog! PRVO TESTIRANJE JE PROBNO, NE ULAZI U BODOVANJE ZA RANG LISTU. ";
         setTimeout(()=>{resolve("izvrseno")},3000);
     
         }).catch(error=>console.log(error));
@@ -204,7 +206,7 @@ async function crtajTezinuNepostojeci()
 }
 fromEvent(buttonHard,"click").pipe(
     map(x=>x.target.value)
-).subscribe(tezina=>{pribaviPitanja();});
+).subscribe(tezina=>{pribaviTeskaPitanja();});
 
 function randomZaTesko()
 {
@@ -217,10 +219,11 @@ function randomZaTesko()
     }).pipe(filter(x=>x!=14),take(5),debounceTime(50))
         
 }
-async function pribaviPitanja()
+async function pribaviTeskaPitanja()
 {
     const btnZavrsi=document.getElementById("btnZavrsi");
     let flegOdgovorio=false;
+    let brojac=0;
 
     const divOdgovori=document.getElementById("divOdgovori");
     const bodiKviz=document.getElementById("bodiKviz");
@@ -232,10 +235,13 @@ async function pribaviPitanja()
     const modalNaslov=document.getElementById("naslovKviz");
     modalNaslov.innerHTML="Sacekajte..";
     let trenutniPoeni=0;
+
+    btnZavrsi.onclick =(ev) => zavrsiNaDugme();
     
 
     for(let i=0;i<5;i++)
     {
+        brojac++;
         bodiKviz.style.backgroundColor="white";
     const sub=randomZaTesko().subscribe(x=> {nizIdentifikatoraPitanja.push(x)});
     if(i==0)
@@ -264,7 +270,7 @@ async function pribaviPitanja()
                                 tacnoDugme.hidden=false;
                                 tacnoDugme.innerHTML=el.ime;
                                 divOdgovori.appendChild(tacnoDugme);
-                                tacnoDugme.onclick = (ev) => {popuniTacno(1); trenutniPoeni+=2; console.log(trenutniPoeni);flegOdgovorio=true;}
+                                fromEvent(tacnoDugme,"click").pipe(map(ev=>ev.target.value)).subscribe(x=>{popuniTacno(); trenutniPoeni+=2; console.log(trenutniPoeni);flegOdgovorio=true;})
                             }
                             else
                             {
@@ -275,7 +281,7 @@ async function pribaviPitanja()
                                 netacna.hidden=false;
                                 netacna.innerHTML=el.ime;
                                 divOdgovori.appendChild(netacna);
-                                netacna.onclick = (ev) => {popuninetacno(1);flegOdgovorio=true; trenutniPoeni--; console.log(trenutniPoeni) ;}
+                                fromEvent(netacna,"click").pipe(map(ev=>ev.target.value)).subscribe(x=>{popuninetacno();flegOdgovorio=true; trenutniPoeni--; console.log(trenutniPoeni) ;})
                             
                             }
                         }
@@ -284,12 +290,13 @@ async function pribaviPitanja()
             })
     }
     else{ 
-    const cekajPromis=await vratiGlupiPromis();
+    const cekajPromis=await vratiPromiszaDrugaPitanja();
     if(flegOdgovorio==false)
         {
-            modalNaslov.innerHTML="Niste odgovorili na vreme. Kviz se zavrsio!";
+            modalNaslov.innerHTML="Niste odgovorili na vreme. Kviz se zavrsio!Refresujte da pokusate ponovo.";
             modalNaslov.style.backgroundColor="tomato";
-
+            
+            
             bodiKviz.innerHTML="";
             
             break;
@@ -317,7 +324,7 @@ async function pribaviPitanja()
                                 tacnoDugme.hidden=false;
                                 tacnoDugme.innerHTML=el.ime;
                                 divOdgovori.appendChild(tacnoDugme);
-                                tacnoDugme.onclick = (ev) => {popuniTacno(1); trenutniPoeni+=2; console.log(trenutniPoeni);flegOdgovorio=true;}
+                                fromEvent(tacnoDugme,"click").pipe(map(ev=>ev.target.value)).subscribe(x=>{popuniTacno(); trenutniPoeni+=2; console.log(trenutniPoeni);flegOdgovorio=true;})
                             }
                             else
                             {
@@ -328,19 +335,58 @@ async function pribaviPitanja()
                                 netacna.hidden=false;
                                 netacna.innerHTML=el.ime;
                                 divOdgovori.appendChild(netacna);
-                                netacna.onclick = (ev) => {popuninetacno(1); trenutniPoeni--;console.log(trenutniPoeni);flegOdgovorio=true;}
+                                fromEvent(netacna,"click").pipe(map(ev=>ev.target.value)).subscribe(x=>{popuninetacno();flegOdgovorio=true; trenutniPoeni--; console.log(trenutniPoeni) ;})
                             
                             }
+                            
+                            
                         }
                     })
 
                 })
             })
     }
+    
     }
+        bodiKviz.style.backgroundColor="white";
+        naslovKviz.innerHTML="Nazalost,isteklo vam je vreme..Kviz je zavrsen.Racunam rezultat..";
+      const cekaj=await poslednjePitanje();
+
+
+    
+    const source=of(trenutniPoeni,trenutnikorisnik._poeni);
+    const pomocna=source.pipe(reduce((acc,val)=>acc + val));
+    const subscribe=pomocna.subscribe(val=> {
+        let pomocnistring=trenutnikorisnik._ime + " " + "vas trenutni rezultat je" + val + "." + "Ako zelite opet da igrate osvezite stranu.";
+        naslovKviz.innerHTML= pomocnistring;
+        bodiKviz.style.backgroundColor="white";
+        bodiKviz.innerHTML="";
+        trenutnikorisnik._poeni=val;
+
+        
+       
+
+    })
+    const sacekajObavestenje=await obavestenje();
+    promeniuBazu(trenutnikorisnik._poeni);
+        pomocnatabela.innerHTML="";
+        popuniRangListu();
+}
+function zavrsiNaDugme()
+{
+    bodiKviz.innerHTML="";
+    naslovKviz.innerHTML="";
+    alert ("Iskljucili ste kviz.Ako zelite da zapocnete novi,osvezite stranicu");
+}
+function promisZaNovogclana()
+{
+    return new Promise((resolve)=>
+    {
+        setTimeout(()=> {resolve("drugi clan")},15000);
+    })
 }
 
-function vratiGlupiPromis()
+function vratiPromiszaDrugaPitanja()
 {
     return new Promise((resolve)=>
     {
@@ -354,18 +400,45 @@ function prvoPitanje()
         setTimeout(()=> {resolve("ovde crtam prvo pitanje")},3000);
     })
 }
-function popuniTacno(fleg)
+function poslednjePitanje()
+{
+    return new Promise ((resolve)=>
+    {
+        setTimeout(()=>{resolve("")},15000);
+    })
+}
+function obavestenje()
+{
+    return new Promise ((resolve)=>
+    {
+        setTimeout(()=> {resolve("nesto")},3000);
+    })
+}
+function promeniuBazu(brojPoena)
+{
+    axios.put(`http://localhost:3000/user/${trenutnikorisnik._id}/`, {
+    id: trenutnikorisnik._id,
+    name: trenutnikorisnik._ime,
+    password: trenutnikorisnik._lozinka,
+    points: brojPoena
+
+}).then(resp => {
+
+    console.log(resp.data);
+}).catch(error => {
+
+    console.log(error);
+});  
+}
+function popuniTacno()
 {
     const bodiKvizz=document.getElementById("bodiKviz");
     const naslovKviz=document.getElementById("naslovKviz");
     naslovKviz.innerHTML="Odgovorili ste tacno! Sledi sledece pitanje..";
-    const btn0=document.getElementById("" + fleg);
-    fleg++;
-    const btn1=document.getElementById("" + fleg);
-    fleg++;
-    const btn2=document.getElementById(""+fleg);
-    fleg++;
-    const btn3=document.getElementById(""+fleg);
+    const btn0=document.getElementById("1");
+    const btn1=document.getElementById("2");
+    const btn2=document.getElementById("3");
+    const btn3=document.getElementById("4");
     btn0.hidden=true;
     btn1.hidden=true;
     btn2.hidden=true;
@@ -382,18 +455,17 @@ function popuniTacno(fleg)
 
 
 }
-function popuninetacno(fleg)
+function popuninetacno()
 {
     const bodiKvizz=document.getElementById("bodiKviz");
     const naslovKviz=document.getElementById("naslovKviz");
     naslovKviz.innerHTML="Odgovorili ste tacno! Sledi sledece pitanje..";
-    const btn0=document.getElementById("" + fleg);
-    fleg++;
-    const btn1=document.getElementById("" + fleg);
-    fleg++;
-    const btn2=document.getElementById(""+fleg);
-    fleg++;
-    const btn3=document.getElementById(""+fleg);
+    const btn0=document.getElementById("1");
+    const btn1=document.getElementById("2");
+    
+    const btn2=document.getElementById("3");
+    
+    const btn3=document.getElementById("4");
     btn0.hidden=true;
     btn1.hidden=true;
     btn2.hidden=true;
@@ -404,10 +476,173 @@ function popuninetacno(fleg)
     btn3.setAttribute("id","");
     bodiKvizz.style.backgroundColor="red";
 }
+function randomZaLako()
+{
+    return Observable.create((randomBr)=>{
+        
+        randomBr.next(parseInt(14*Math.random()));
+        
+    
+    
+}).pipe(take(5),debounceTime(50))
+    
+}
+fromEvent(buttonEasy,"click").pipe(
+    map(x=>x.target.value)
+).subscribe(tezina=>{pribaviLakaPitanja();});
+
+async function pribaviLakaPitanja ()
+{
+    const btnZavrsi=document.getElementById("btnZavrsi");
+    let flegOdgovorio=false;
+    let brojac=0;
+
+    const divOdgovori=document.getElementById("divOdgovori");
+    const bodiKviz=document.getElementById("bodiKviz");
+    const dugmad=document.querySelector(".dugmad");
+    dugmad.hidden=true;
+    const labela=document.createElement("label");
+    labela.innerHTML="Izabrali ste lak mod kviza..";
+    bodiKviz.appendChild(labela);
+    const modalNaslov=document.getElementById("naslovKviz");
+    modalNaslov.innerHTML="Sacekajte..";
+    let trenutniPoeni=0;
+
+    btnZavrsi.onclick =(ev) => zavrsiNaDugme();
+    
+
+    for(let i=0;i<5;i++)
+    {
+        brojac++;
+        bodiKviz.style.backgroundColor="white";
+    const sub=randomZaLako().subscribe(x=> {nizIdentifikatoraPitanja.push(x)});
+    if(i==0)
+    {
+        const pPitanje=await prvoPitanje();
+        axios.get(`http://localhost:3000/pitanja/${nizIdentifikatoraPitanja[i]}`)
+        .then(odg=>
+            {
+                
+                let brojacZaPitanje=1;
+                
+                const data=odg.data;
+                modalNaslov.innerHTML=data.ime;
+                labela.hidden=true;
+                axios.get('http://localhost:3000/odgovori')
+                .then(rsp=>
+                {
+                    const pod=rsp.data;
+                    pod.forEach((el)=>{
+                        if(el.id==data.id)
+                        {
+                            if(el.tacnost==1)
+                            {
+                                const tacnoDugme=document.createElement("button");
+                                tacnoDugme.setAttribute("id","1");
+                                tacnoDugme.hidden=false;
+                                tacnoDugme.innerHTML=el.ime;
+                                divOdgovori.appendChild(tacnoDugme);
+                                fromEvent(tacnoDugme,"click").pipe(map(ev=>ev.target.value)).subscribe(x=>{popuniTacno(); trenutniPoeni+=1; console.log(trenutniPoeni);flegOdgovorio=true;})
+                            }
+                            else
+                            {
+                                brojacZaPitanje++;
+                                let stringZaId=""+brojacZaPitanje;
+                                let netacna=document.createElement("button");
+                                netacna.setAttribute("id",stringZaId);
+                                netacna.hidden=false;
+                                netacna.innerHTML=el.ime;
+                                divOdgovori.appendChild(netacna);
+                                fromEvent(netacna,"click").pipe(map(ev=>ev.target.value)).subscribe(x=>{popuninetacno();flegOdgovorio=true; trenutniPoeni--; console.log(trenutniPoeni) ;})
+                            
+                            }
+                        }
+                    })
+                })  
+            })
+    }
+    else{ 
+    const cekajPromis=await vratiPromiszaDrugaPitanja();
+    if(flegOdgovorio==false)
+        {
+            modalNaslov.innerHTML="Niste odgovorili na vreme. Kviz se zavrsio!Refresujte da pokusate ponovo.";
+            modalNaslov.style.backgroundColor="tomato";
+            
+            
+            bodiKviz.innerHTML="";
+            
+            break;
+        }
+        flegOdgovorio=false;
+    axios.get(`http://localhost:3000/pitanja/${nizIdentifikatoraPitanja[i]}`)
+        .then(odg=>
+            {
+                
+                let brojacZaPitanje=1;
+                const data=odg.data;
+                modalNaslov.innerHTML=data.ime;
+                labela.hidden=true;
+                axios.get('http://localhost:3000/odgovori')
+                .then(rsp=>
+                {
+                    const pod=rsp.data;
+                    pod.forEach((el)=>{
+                        if(el.id==data.id)
+                        {
+                            if(el.tacnost==1)
+                            {
+                                const tacnoDugme=document.createElement("button");
+                                tacnoDugme.setAttribute("id","1");
+                                tacnoDugme.hidden=false;
+                                tacnoDugme.innerHTML=el.ime;
+                                divOdgovori.appendChild(tacnoDugme);
+                                fromEvent(tacnoDugme,"click").pipe(map(ev=>ev.target.value)).subscribe(x=>{popuniTacno(); trenutniPoeni+=1; console.log(trenutniPoeni);flegOdgovorio=true;})
+                            }
+                            else
+                            {
+                                brojacZaPitanje++;
+                                let stringZaId=""+brojacZaPitanje;
+                                let netacna=document.createElement("button");
+                                netacna.setAttribute("id",stringZaId);
+                                netacna.hidden=false;
+                                netacna.innerHTML=el.ime;
+                                divOdgovori.appendChild(netacna);
+                                fromEvent(netacna,"click").pipe(map(ev=>ev.target.value)).subscribe(x=>{popuninetacno();flegOdgovorio=true; trenutniPoeni--; console.log(trenutniPoeni) ;})
+                            
+                            }
+                            
+                            
+                        }
+                    })
+
+                })
+            })
+    }
+    
+    }
+        bodiKviz.style.backgroundColor="white";
+        naslovKviz.innerHTML="Nazalost,isteklo vam je vreme..Kviz je zavrsen.Racunam rezultat..";
+      const cekaj=await poslednjePitanje();
 
 
+    
+    const source=of(trenutniPoeni,trenutnikorisnik._poeni);
+    const pomocna=source.pipe(reduce((acc,val)=>acc + val));
+    const subscribe=pomocna.subscribe(val=> {
+        let pomocnistring=trenutnikorisnik._ime + " " + "vas trenutni rezultat je" + val + "." + "Ako zelite opet da igrate osvezite stranu.";
+        naslovKviz.innerHTML= pomocnistring;
+        bodiKviz.style.backgroundColor="white";
+        bodiKviz.innerHTML="";
+        trenutnikorisnik._poeni=val;
 
+        promeniuBazu(trenutnikorisnik._poeni);
+       
 
+    })
+    const sacekajObavestenje=await obavestenje();
+        pomocnatabela.innerHTML="";
+        popuniRangListu();
+}
 
 
 
