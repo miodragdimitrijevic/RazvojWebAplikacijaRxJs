@@ -139,22 +139,22 @@
       "tezina": 1
     },
     {
-      "id": 20,
+      "id": 21,
       "ime": "Koji od ponudjenih jezika je objektno-orjentisan:",
       "tezina": 1
     },
     {
-      "id": 21,
+      "id": 20,
       "ime": "U SQL-u koji najjcesnji nacin 'pridruzivanja' tabela:",
       "tezina": 1
     },
     {
-      "id": 22,
+      "id": 23,
       "ime": "Koji HTML tag se koristi za insertovanje presecne linije:",
       "tezina": 1
     },
     {
-      "id": 23,
+      "id": 22,
       "ime": "Izbacite uljeza ako je u pitanju obrada izuzetaka u C#",
       "tezina": 1
     },
@@ -164,12 +164,12 @@
       "tezina": 1
     },
     {
-      "id": 25,
+      "id": 26,
       "ime": "Kako se u HTML-u kreira čekboks:",
       "tezina": 1
     },
     {
-      "id": 26,
+      "id": 25,
       "ime": "Pronadji sve tagove vezane za tabele u html-u:",
       "tezina": 1
     },
@@ -572,7 +572,7 @@
     },
     {
       "id": 19,
-      "ime": "oba tvrdjenja netacna",
+      "ime": "oba tvrdjenja tacna",
       "tacnost": 1
     },
     {
@@ -652,122 +652,122 @@
     },
     {
       "id": 23,
-      "ime": "<breakline>",
+      "ime": "'< b r e a k l i n e >'",
       "tacnost": 0
     },
     {
       "id": 23,
-      "ime": "<br>",
+      "ime": "'< b r >'",
       "tacnost": 1
     },
     {
       "id": 23,
-      "ime": "<bl>",
+      "ime": "'< b l >'",
       "tacnost": 0
     },
     {
       "id": 23,
-      "ime": "<linebreak>",
+      "ime": "'< l i n e b r e a k >'",
       "tacnost": 0
     },
     {
       "id": 24,
-      "ime": "<a href='www.google.com'> Google </a>",
+      "ime": "'< a h r e f='www.google.com'> Google <- / a >'",
       "tacnost": 1
     },
     {
       "id": 24,
-      "ime": "<a>'www.google.com'</a>",
+      "ime": "'< a ->'www.google.com'< -/  a  >'",
       "tacnost": 0
     },
     {
       "id": 24,
-      "ime": "<h ='www.google.com'>Google </h>",
+      "ime": "'< h ='www.google.com'>Google < -/h >'",
       "tacnost": 0
     },
     {
       "id": 24,
-      "ime": "<a url='www.google.com'> Google </a>",
+      "ime": "'<a url='www.google.com'> Google </a ->'",
       "tacnost": 0
     },
     {
       "id": 25,
-      "ime": "<table> <tt> < tr>",
+      "ime": "'< -t a b l e> <- t t> < -t r>'",
       "tacnost": 0
     },
     {
       "id": 25,
-      "ime": "<table> <tr> <td>",
+      "ime": "'<-t a b l e> <- t r > < -t d >' ",
       "tacnost": 1
     },
     {
       "id": 25,
-      "ime": "<table> <t> <td>",
+      "ime": "'< - t a b l e > <- t> < - t d >'",
       "tacnost": 0
     },
     {
       "id": 25,
-      "ime": "<tr> <td> <t>",
+      "ime": "'<- t r > < t d > <- t >'",
       "tacnost": 0
     },
     {
       "id": 26,
-      "ime": "<check>",
+      "ime": "'<- c h e c k>'",
       "tacnost": 0
     },
     {
       "id": 26,
-      "ime": "<checkbox>",
+      "ime": "'<c h e c -k b o x >'",
       "tacnost": 0
     },
     {
       "id": 26,
-      "ime": "<input type='checkbox'>",
+      "ime": "'< - i n p ut t y p e='checkbox'>'",
       "tacnost": 1
     },
     {
       "id": 26,
-      "ime": "<input type='check'>",
+      "ime": "'<-input type='check'>'",
       "tacnost": 0
     },
     {
       "id": 27,
-      "ime": "<src>",
+      "ime": "'<src>'",
       "tacnost": 0
     },
     {
       "id": 27,
-      "ime": "<img>",
+      "ime": "'<img>'",
       "tacnost": 0
     },
     {
       "id": 27,
-      "ime": "<longspace>",
+      "ime": "'<longspace>'",
       "tacnost": 0
     },
     {
       "id": 27,
-      "ime": "<alt>",
+      "ime": "'< - alt>'",
       "tacnost": 1
     },
     {
       "id": 28,
-      "ime": "<navlink>",
+      "ime": "'<navlink>'",
       "tacnost": 0
     },
     {
       "id": 28,
-      "ime": "<n>",
+      "ime": "'<n>'",
       "tacnost": 0
     },
     {
       "id": 28,
-      "ime": "<nav>",
+      "ime": "'< - nav>'",
       "tacnost": 1
     },
     {
       "id": 28,
-      "ime": "<nlink>",
+      "ime": "'<nlink>'",
       "tacnost": 0
     },
     {

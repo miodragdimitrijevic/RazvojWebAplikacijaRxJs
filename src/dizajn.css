@@ -53,6 +53,16 @@ body
 
     
 }
+#divOdgovori
+{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.modal-dialog
+{
+    height:300px;
+}
 
 .caption
 {

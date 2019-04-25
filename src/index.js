@@ -1,6 +1,6 @@
 import {Pitanja} from "./pitanja.js"
-import { interval, range, Subject, Observable, fromEvent, from, forkJoin, timer, zip } from "rxjs";
-import { take, filter, map, takeUntil, sampleTime, debounceTime, switchMap, pairwise, scan } from "rxjs/operators";
+import { interval, range, Subject, Observable, fromEvent, from, forkJoin, timer, zip,of} from "rxjs";
+import { take, filter, map, takeUntil, sampleTime, debounceTime, switchMap, pairwise, scan,reduce} from "rxjs/operators";
 import {Korisnik} from "./korisnik.js"
 import { resolve } from "url";
 import { rejects } from "assert";
@@ -11,7 +11,7 @@ const rngListaBtn=document.getElementById("btnrnglista");
 
 
 
-        
+
 const pomocnatabela=document.getElementById("tabela");
 const btnPocni=document.getElementById("Prijava");
 let imeKorisnik=document.getElementById("txtime");
@@ -101,6 +101,7 @@ async function cekaj()
 }
 function crtajZaPostojecegKorisnika()
 {
+    
     return new Promise((resolve)=>{
         
     
@@ -218,7 +219,10 @@ function randomZaTesko()
 }
 async function pribaviPitanja()
 {
+    const btnZavrsi=document.getElementById("btnZavrsi");
+    let flegOdgovorio=false;
 
+    const divOdgovori=document.getElementById("divOdgovori");
     const bodiKviz=document.getElementById("bodiKviz");
     const dugmad=document.querySelector(".dugmad");
     dugmad.hidden=true;
@@ -227,9 +231,12 @@ async function pribaviPitanja()
     bodiKviz.appendChild(labela);
     const modalNaslov=document.getElementById("naslovKviz");
     modalNaslov.innerHTML="Sacekajte..";
+    let trenutniPoeni=0;
+    
 
     for(let i=0;i<5;i++)
     {
+        bodiKviz.style.backgroundColor="white";
     const sub=randomZaTesko().subscribe(x=> {nizIdentifikatoraPitanja.push(x)});
     if(i==0)
     {
@@ -237,6 +244,9 @@ async function pribaviPitanja()
         axios.get(`http://localhost:3000/pitanja/${nizIdentifikatoraPitanja[i]}`)
         .then(odg=>
             {
+                
+                let brojacZaPitanje=1;
+                
                 const data=odg.data;
                 modalNaslov.innerHTML=data.ime;
                 labela.hidden=true;
@@ -251,23 +261,81 @@ async function pribaviPitanja()
                             {
                                 const tacnoDugme=document.createElement("button");
                                 tacnoDugme.setAttribute("id","1");
+                                tacnoDugme.hidden=false;
                                 tacnoDugme.innerHTML=el.ime;
-                                bodiKviz.appendChild(tacnoDugme);
+                                divOdgovori.appendChild(tacnoDugme);
+                                tacnoDugme.onclick = (ev) => {popuniTacno(1); trenutniPoeni+=2; console.log(trenutniPoeni);flegOdgovorio=true;}
+                            }
+                            else
+                            {
+                                brojacZaPitanje++;
+                                let stringZaId=""+brojacZaPitanje;
+                                let netacna=document.createElement("button");
+                                netacna.setAttribute("id",stringZaId);
+                                netacna.hidden=false;
+                                netacna.innerHTML=el.ime;
+                                divOdgovori.appendChild(netacna);
+                                netacna.onclick = (ev) => {popuninetacno(1);flegOdgovorio=true; trenutniPoeni--; console.log(trenutniPoeni) ;}
+                            
+                            }
+                        }
+                    })
+                })  
+            })
+    }
+    else{ 
+    const cekajPromis=await vratiGlupiPromis();
+    if(flegOdgovorio==false)
+        {
+            modalNaslov.innerHTML="Niste odgovorili na vreme. Kviz se zavrsio!";
+            modalNaslov.style.backgroundColor="tomato";
+
+            bodiKviz.innerHTML="";
+            
+            break;
+        }
+        flegOdgovorio=false;
+    axios.get(`http://localhost:3000/pitanja/${nizIdentifikatoraPitanja[i]}`)
+        .then(odg=>
+            {
+                
+                let brojacZaPitanje=1;
+                const data=odg.data;
+                modalNaslov.innerHTML=data.ime;
+                labela.hidden=true;
+                axios.get('http://localhost:3000/odgovori')
+                .then(rsp=>
+                {
+                    const pod=rsp.data;
+                    pod.forEach((el)=>{
+                        if(el.id==data.id)
+                        {
+                            if(el.tacnost==1)
+                            {
+                                const tacnoDugme=document.createElement("button");
+                                tacnoDugme.setAttribute("id","1");
+                                tacnoDugme.hidden=false;
+                                tacnoDugme.innerHTML=el.ime;
+                                divOdgovori.appendChild(tacnoDugme);
+                                tacnoDugme.onclick = (ev) => {popuniTacno(1); trenutniPoeni+=2; console.log(trenutniPoeni);flegOdgovorio=true;}
+                            }
+                            else
+                            {
+                                brojacZaPitanje++;
+                                let stringZaId=""+brojacZaPitanje;
+                                let netacna=document.createElement("button");
+                                netacna.setAttribute("id",stringZaId);
+                                netacna.hidden=false;
+                                netacna.innerHTML=el.ime;
+                                divOdgovori.appendChild(netacna);
+                                netacna.onclick = (ev) => {popuninetacno(1); trenutniPoeni--;console.log(trenutniPoeni);flegOdgovorio=true;}
+                            
                             }
                         }
                     })
 
                 })
-                
-               
             })
-            
-
-    }
-    else{
-    const cekajPromis=await vratiGlupiPromis();
-    console.log(cekajPromis);
-    
     }
     }
 }
@@ -285,6 +353,56 @@ function prvoPitanje()
     {
         setTimeout(()=> {resolve("ovde crtam prvo pitanje")},3000);
     })
+}
+function popuniTacno(fleg)
+{
+    const bodiKvizz=document.getElementById("bodiKviz");
+    const naslovKviz=document.getElementById("naslovKviz");
+    naslovKviz.innerHTML="Odgovorili ste tacno! Sledi sledece pitanje..";
+    const btn0=document.getElementById("" + fleg);
+    fleg++;
+    const btn1=document.getElementById("" + fleg);
+    fleg++;
+    const btn2=document.getElementById(""+fleg);
+    fleg++;
+    const btn3=document.getElementById(""+fleg);
+    btn0.hidden=true;
+    btn1.hidden=true;
+    btn2.hidden=true;
+    btn3.hidden=true;
+    btn0.setAttribute("id","");
+    btn1.setAttribute("id","");
+    btn2.setAttribute("id","");
+    btn3.setAttribute("id","");
+    
+   
+
+  
+    bodiKvizz.style.backgroundColor="green";
+
+
+}
+function popuninetacno(fleg)
+{
+    const bodiKvizz=document.getElementById("bodiKviz");
+    const naslovKviz=document.getElementById("naslovKviz");
+    naslovKviz.innerHTML="Odgovorili ste tacno! Sledi sledece pitanje..";
+    const btn0=document.getElementById("" + fleg);
+    fleg++;
+    const btn1=document.getElementById("" + fleg);
+    fleg++;
+    const btn2=document.getElementById(""+fleg);
+    fleg++;
+    const btn3=document.getElementById(""+fleg);
+    btn0.hidden=true;
+    btn1.hidden=true;
+    btn2.hidden=true;
+    btn3.hidden=true;
+    btn0.setAttribute("id","");
+    btn1.setAttribute("id","");
+    btn2.setAttribute("id","");
+    btn3.setAttribute("id","");
+    bodiKvizz.style.backgroundColor="red";
 }
 
 
